@@ -4,7 +4,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-// AppLayout - Layout principal (sin validación de auth)
-// Se usa para: Home, páginas públicas
-</script>
+<script setup lang="ts"></script>
