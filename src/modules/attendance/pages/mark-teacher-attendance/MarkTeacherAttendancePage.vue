@@ -21,7 +21,9 @@
 
       <!-- Botón de marcar -->
       <div class="mb-8 flex justify-center">
-        <button class="flex h-40 w-40 items-center justify-center rounded-full bg-[#B8D787] text-xl font-bold text-white shadow-lg transition-transform hover:scale-105">
+        <button
+          class="flex h-40 w-40 items-center justify-center rounded-full bg-[#B8D787] text-xl font-bold text-white shadow-lg transition-transform hover:scale-105"
+        >
           Marcar Entrada
         </button>
       </div>

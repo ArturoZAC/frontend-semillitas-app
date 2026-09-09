@@ -7,9 +7,7 @@
     <!-- Header -->
     <header class="bg-[#B8D787] p-4 shadow-md">
       <div class="flex items-center">
-        <router-link to="/grades" class="mr-3 text-white">
-          ←
-        </router-link>
+        <router-link to="/grades" class="mr-3 text-white"> ← </router-link>
         <div>
           <h1 class="text-xl font-bold text-white">Evaluar Niños</h1>
           <p class="text-sm text-white/80">Registrar evaluaciones</p>

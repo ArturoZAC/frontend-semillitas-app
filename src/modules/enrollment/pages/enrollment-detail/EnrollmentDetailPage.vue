@@ -7,9 +7,7 @@
     <!-- Header -->
     <header class="bg-[#B8D787] p-4 shadow-md">
       <div class="flex items-center">
-        <router-link to="/enrollments" class="mr-3 text-white">
-          ←
-        </router-link>
+        <router-link to="/enrollments" class="mr-3 text-white"> ← </router-link>
         <div>
           <h1 class="text-xl font-bold text-white">Detalle del Niño</h1>
           <p class="text-sm text-white/80">Información de matrícula</p>
@@ -39,15 +37,21 @@
 
       <!-- Acciones -->
       <div class="space-y-3">
-        <button class="w-full rounded-xl border border-[#C08461] px-4 py-3 font-medium text-[#C08461] transition-colors hover:bg-[#C08461] hover:text-white">
+        <button
+          class="w-full rounded-xl border border-[#C08461] px-4 py-3 font-medium text-[#C08461] transition-colors hover:bg-[#C08461] hover:text-white"
+        >
           Editar Información
         </button>
 
-        <button class="w-full rounded-xl border border-[#F8C40E] px-4 py-3 font-medium text-[#F8C40E] transition-colors hover:bg-[#F8C40E] hover:text-white">
+        <button
+          class="w-full rounded-xl border border-[#F8C40E] px-4 py-3 font-medium text-[#F8C40E] transition-colors hover:bg-[#F8C40E] hover:text-white"
+        >
           Trasladar
         </button>
 
-        <button class="w-full rounded-xl border border-red-500 px-4 py-3 font-medium text-red-500 transition-colors hover:bg-red-500 hover:text-white">
+        <button
+          class="w-full rounded-xl border border-red-500 px-4 py-3 font-medium text-red-500 transition-colors hover:bg-red-500 hover:text-white"
+        >
           Retirar
         </button>
       </div>

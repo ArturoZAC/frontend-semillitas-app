@@ -15,35 +15,37 @@
       <!-- Selectores -->
       <div class="mb-6 space-y-4">
         <div>
-          <label class="mb-2 block text-sm font-medium text-gray-700">
-            Área Curricular
-          </label>
-          <select class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none">
+          <label class="mb-2 block text-sm font-medium text-gray-700"> Área Curricular </label>
+          <select
+            class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none"
+          >
             <option value="">Seleccionar área</option>
           </select>
         </div>
 
         <div>
-          <label class="mb-2 block text-sm font-medium text-gray-700">
-            Bimestre
-          </label>
-          <select class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none">
+          <label class="mb-2 block text-sm font-medium text-gray-700"> Bimestre </label>
+          <select
+            class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none"
+          >
             <option value="">Seleccionar bimestre</option>
           </select>
         </div>
 
         <div>
-          <label class="mb-2 block text-sm font-medium text-gray-700">
-            Sección
-          </label>
-          <select class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none">
+          <label class="mb-2 block text-sm font-medium text-gray-700"> Sección </label>
+          <select
+            class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none"
+          >
             <option value="">Seleccionar sección</option>
           </select>
         </div>
       </div>
 
       <!-- Zona de drag and drop -->
-      <div class="mb-6 rounded-2xl border-2 border-dashed border-gray-300 p-8 text-center transition-colors hover:border-[#B8D787]">
+      <div
+        class="mb-6 rounded-2xl border-2 border-dashed border-gray-300 p-8 text-center transition-colors hover:border-[#B8D787]"
+      >
         <div class="text-4xl">📁</div>
         <p class="mt-2 text-gray-600">Arrastra el archivo Excel aquí</p>
         <p class="text-sm text-gray-400">o haz clic para seleccionar</p>
@@ -51,7 +53,9 @@
       </div>
 
       <!-- Botón subir -->
-      <button class="w-full rounded-xl bg-[#B8D787] px-4 py-3 font-semibold text-white transition-colors hover:bg-[#a3c474]">
+      <button
+        class="w-full rounded-xl bg-[#B8D787] px-4 py-3 font-semibold text-white transition-colors hover:bg-[#a3c474]"
+      >
         Subir Archivo
       </button>
     </main>

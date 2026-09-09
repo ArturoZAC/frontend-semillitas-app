@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#B8D787] to-[#C08461] p-4">
+  <div
+    class="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#B8D787] to-[#C08461] p-4"
+  >
     <div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
       <div class="mb-8 text-center">
         <h1 class="text-3xl font-bold text-gray-800">Semillitas</h1>
@@ -19,7 +21,7 @@
             id="email"
             type="email"
             placeholder="Ingrese su correo"
-            class="w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#B8D787] focus:outline-none focus:ring-2 focus:ring-[#B8D787]"
+            class="w-full rounded-xl border border-gray-300 px-4 py-3 transition-colors focus:border-[#B8D787] focus:ring-2 focus:ring-[#B8D787] focus:outline-none"
           />
         </div>
 

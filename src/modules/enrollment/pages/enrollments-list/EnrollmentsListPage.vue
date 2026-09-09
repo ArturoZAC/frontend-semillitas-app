@@ -17,17 +17,21 @@
         <input
           type="text"
           placeholder="Buscar por nombre..."
-          class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none focus:ring-2 focus:ring-[#B8D787]"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:ring-2 focus:ring-[#B8D787] focus:outline-none"
         />
 
         <div class="flex gap-2">
-          <select class="flex-1 rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none">
+          <select
+            class="flex-1 rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none"
+          >
             <option value="">Todos los turnos</option>
             <option value="morning">Mañana</option>
             <option value="afternoon">Tarde</option>
           </select>
 
-          <select class="flex-1 rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none">
+          <select
+            class="flex-1 rounded-xl border border-gray-300 px-4 py-3 focus:border-[#B8D787] focus:outline-none"
+          >
             <option value="">Todas las secciones</option>
           </select>
         </div>
@@ -42,7 +46,7 @@
     <!-- Botón flotante -->
     <router-link
       to="/enrollments/create"
-      class="fixed bottom-24 right-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#B8D787] text-2xl text-white shadow-lg transition-transform hover:scale-105"
+      class="fixed right-4 bottom-24 flex h-14 w-14 items-center justify-center rounded-full bg-[#B8D787] text-2xl text-white shadow-lg transition-transform hover:scale-105"
     >
       +
     </router-link>

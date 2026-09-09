@@ -7,9 +7,7 @@
     <!-- Header -->
     <header class="bg-[#B8D787] p-4 shadow-md">
       <div class="flex items-center">
-        <router-link to="/grades" class="mr-3 text-white">
-          ←
-        </router-link>
+        <router-link to="/grades" class="mr-3 text-white"> ← </router-link>
         <div>
           <h1 class="text-xl font-bold text-white">Descargar Excel</h1>
           <p class="text-sm text-white/80">Generar archivo SIAGIE</p>
@@ -44,7 +42,7 @@
       <!-- Botón descargar -->
       <button
         disabled
-        class="w-full rounded-xl bg-gray-300 px-4 py-3 font-semibold text-gray-500 cursor-not-allowed"
+        class="w-full cursor-not-allowed rounded-xl bg-gray-300 px-4 py-3 font-semibold text-gray-500"
       >
         Descargar Excel
       </button>

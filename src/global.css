@@ -7,14 +7,14 @@
   --font-heading: 'Trench Slab', Georgia, serif;
   --font-sans: 'General Sans', system-ui, sans-serif;
 
-  --color-primary: #B8D787;
+  --color-primary: #b8d787;
   --color-primary-dark: #a3c474;
-  --color-secondary: #C08461;
+  --color-secondary: #c08461;
   --color-secondary-dark: #a8734f;
-  --color-tertiary: #F8C40E;
+  --color-tertiary: #f8c40e;
   --color-tertiary-dark: #d9a90c;
-  --color-peru-red: #D91023;
-  --color-peru-white: #FFFFFF;
+  --color-peru-red: #d91023;
+  --color-peru-white: #ffffff;
 }
 
 /* =====================================
@@ -365,7 +365,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #B8D787;
+    background: #b8d787;
     border-radius: 4px;
   }
 
