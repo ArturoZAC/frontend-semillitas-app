@@ -1,1 +1,375 @@
 @import 'tailwindcss';
+
+/* =====================================
+   THEME
+===================================== */
+@theme inline {
+  --font-heading: 'Trench Slab', Georgia, serif;
+  --font-sans: 'General Sans', system-ui, sans-serif;
+
+  --color-primary: #B8D787;
+  --color-primary-dark: #a3c474;
+  --color-secondary: #C08461;
+  --color-secondary-dark: #a8734f;
+  --color-tertiary: #F8C40E;
+  --color-tertiary-dark: #d9a90c;
+  --color-peru-red: #D91023;
+  --color-peru-white: #FFFFFF;
+}
+
+/* =====================================
+   FONTS
+===================================== */
+@font-face {
+  font-family: 'Trench Slab';
+  src: url('./assets/fonts/trench-slab/TrenchSlab-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('./assets/fonts/general-sans/GeneralSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('./assets/fonts/general-sans/GeneralSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('./assets/fonts/general-sans/GeneralSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =====================================
+   BASE
+===================================== */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'General Sans', system-ui, sans-serif;
+    background: transparent;
+    color: #1f2937;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Trench Slab', Georgia, serif;
+    color: #1f2937;
+    font-weight: 500;
+  }
+
+  button {
+    font-family: 'General Sans', system-ui, sans-serif;
+    cursor: pointer;
+  }
+
+  p,
+  label,
+  li,
+  span {
+    font-family: 'General Sans', system-ui, sans-serif;
+    color: #1f2937;
+  }
+
+  /* ---- MOBILE ---- */
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+  h4 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+  h5 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+  h6 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  p,
+  label {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  small,
+  span {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  /* ---- DESKTOP ≥768px ---- */
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 56px;
+    }
+    h2 {
+      font-size: 48px;
+    }
+    h3 {
+      font-size: 40px;
+    }
+    h4 {
+      font-size: 32px;
+    }
+    h5 {
+      font-size: 28px;
+    }
+    h6 {
+      font-size: 24px;
+    }
+
+    p,
+    label {
+      font-size: 16px;
+    }
+    small {
+      font-size: 14px;
+    }
+  }
+}
+
+/* =====================================
+   COMPONENTS
+===================================== */
+@layer components {
+  /* ---- INVERSIÓN DE COLOR — HEADINGS ---- */
+  .h1-white {
+    color: #ffffff;
+  }
+  .h2-white {
+    color: #ffffff;
+  }
+  .h3-white {
+    color: #ffffff;
+  }
+  .h4-white {
+    color: #ffffff;
+  }
+  .h5-white {
+    color: #ffffff;
+  }
+  .h6-white {
+    color: #ffffff;
+  }
+
+  /* ---- INVERSIÓN DE COLOR — TEXTO BODY ---- */
+  .p-white {
+    color: #ffffff;
+  }
+  .label-white {
+    color: #ffffff;
+  }
+  .span-white {
+    color: #ffffff;
+  }
+  .small-white {
+    color: #ffffff;
+  }
+  .li-white {
+    color: #ffffff;
+  }
+
+  /* ---- DISPLAY ---- */
+  .display {
+    font-family: 'Trench Slab', Georgia, serif;
+    font-size: 36px;
+    line-height: 1.1;
+    color: #1f2937;
+  }
+  .display-white {
+    font-family: 'Trench Slab', Georgia, serif;
+    font-size: 36px;
+    line-height: 1.1;
+    color: #ffffff;
+  }
+
+  /* ---- LEAD ---- */
+  .lead {
+    font-family: 'General Sans', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #1f2937;
+  }
+  .lead-white {
+    font-family: 'General Sans', system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #ffffff;
+  }
+
+  /* ---- LEAD2 ---- */
+  .lead2 {
+    font-family: 'General Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #1f2937;
+  }
+  .lead2-white {
+    font-family: 'General Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #ffffff;
+  }
+
+  /* ---- SUBTITLE ---- */
+  .subtitle1 {
+    font-size: 22px;
+    line-height: 1.3;
+    color: #1f2937;
+  }
+  .subtitle1-white {
+    font-size: 22px;
+    line-height: 1.3;
+    color: #ffffff;
+  }
+
+  .subtitle2 {
+    font-size: 20px;
+    line-height: 1.25;
+    color: #1f2937;
+  }
+  .subtitle2-white {
+    font-size: 20px;
+    line-height: 1.25;
+    color: #ffffff;
+  }
+
+  /* ---- H2 HERO ---- */
+  .h2-hero {
+    font-family: 'Trench Slab', Georgia, serif;
+    font-size: 30px;
+    line-height: 1.1;
+    color: #1f2937;
+  }
+  .h2-hero-white {
+    font-family: 'Trench Slab', Georgia, serif;
+    font-size: 30px;
+    line-height: 1.1;
+    color: #ffffff;
+  }
+
+  /* ---- H3 CARD ---- */
+  .h3-card {
+    font-family: 'Trench Slab', Georgia, serif;
+    font-size: 26px;
+    line-height: 1.2;
+    color: #1f2937;
+  }
+  .h3-card-white {
+    font-family: 'Trench Slab', Georgia, serif;
+    font-size: 26px;
+    line-height: 1.2;
+    color: #ffffff;
+  }
+
+  /* ---- H1 BADGE ---- */
+  .h1-badge {
+    font-family: 'General Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: #1f2937;
+  }
+  .h1-badge-white {
+    font-family: 'General Sans', system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+  }
+
+  /* ---- DESKTOP ≥768px ---- */
+  @media (min-width: 768px) {
+    .display,
+    .display-white {
+      font-size: 64px;
+    }
+    .lead,
+    .lead-white {
+      font-size: 20px;
+    }
+    .lead2,
+    .lead2-white {
+      font-size: 18px;
+    }
+    .subtitle1,
+    .subtitle1-white {
+      font-size: 28px;
+    }
+    .subtitle2,
+    .subtitle2-white {
+      font-size: 24px;
+    }
+    .h2-hero,
+    .h2-hero-white {
+      font-size: 56px;
+    }
+    .h3-card,
+    .h3-card-white {
+      font-size: 30px;
+    }
+  }
+}
+
+/* =====================================
+   UTILITIES
+===================================== */
+@layer utilities {
+  .text-inherit {
+    color: inherit;
+  }
+
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #B8D787;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a3c474;
+  }
+}
