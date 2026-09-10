@@ -33,9 +33,9 @@ const authStore = useAuthStore()
 onMounted(() => {
   authStore.restoreSession()
 
-  // Si ya está autenticado, redirigir a home
+  // Si ya está autenticado, redirigir al dashboard
   if (authStore.isAuthenticated) {
-    router.push('/')
+    router.push('/dashboard')
   }
 })
 </script>

@@ -3,14 +3,14 @@
     <!-- Header -->
     <header class="from-primary to-primary-dark bg-gradient-to-r p-6 pb-8">
       <div class="mx-auto max-w-7xl">
-        <div class="flex items-center justify-between">
-          <div>
-            <h1 class="h2-hero-white text-2xl font-bold text-white">Matrícula</h1>
-            <p class="span-white mt-1 text-white/70">Listado de alumnos</p>
+        <div class="flex items-center justify-between gap-3">
+          <div class="min-w-0">
+            <h1 class="h1-white">Matrícula</h1>
+            <p class="lead2-white mt-1 text-white/80">Listado de alumnos</p>
           </div>
           <router-link
             to="/enrollments/create"
-            class="text-primary flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-semibold shadow-lg transition-all hover:shadow-xl"
+            class="text-primary flex shrink-0 items-center gap-2 rounded-xl bg-white px-4 py-2.5 font-semibold shadow-lg transition-all hover:shadow-xl"
           >
             <IconPlus class="h-5 w-5" />
             Nueva
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Filtros -->
-        <div class="flex gap-3">
+        <div class="flex flex-col gap-3 sm:flex-row">
           <select
             class="focus:border-primary flex-1 rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 shadow-sm focus:outline-none"
           >
@@ -57,16 +57,16 @@
       <!-- Estadísticas rápidas -->
       <div class="mb-6 flex gap-3">
         <div class="bg-primary/10 flex-1 rounded-xl p-3 text-center">
-          <p class="display text-primary text-xl font-bold">85</p>
-          <p class="small text-gray-500">Mañana</p>
+          <h4 class="h4 text-primary">85</h4>
+          <p class="mt-1 text-gray-500">Mañana</p>
         </div>
         <div class="bg-secondary/10 flex-1 rounded-xl p-3 text-center">
-          <p class="display text-secondary text-xl font-bold">65</p>
-          <p class="small text-gray-500">Tarde</p>
+          <h4 class="h4 text-secondary">65</h4>
+          <p class="mt-1 text-gray-500">Tarde</p>
         </div>
         <div class="flex-1 rounded-xl bg-gray-100 p-3 text-center">
-          <p class="display text-xl font-bold text-gray-700">150</p>
-          <p class="small text-gray-500">Total</p>
+          <h4 class="h4 text-gray-700">150</h4>
+          <p class="mt-1 text-gray-500">Total</p>
         </div>
       </div>
 
@@ -75,16 +75,18 @@
         <!-- Niño 1 -->
         <router-link
           to="/enrollments/1"
-          class="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md"
+          class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
-            <span class="h5 text-primary">AP</span>
+          <div class="bg-primary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+            <span class="lead2 font-bold text-primary">AP</span>
           </div>
-          <div class="flex-1">
-            <h3 class="h5 text-gray-800">Ana Pérez García</h3>
-            <p class="small text-gray-500">DNI: 12345678 • Turno: Mañana • Sección A</p>
+          <div class="min-w-0 flex-1">
+            <h5 class="text-gray-800">Ana Pérez García</h5>
+            <p class="mt-1 text-gray-500">DNI: 12345678 • Turno: Mañana • Sección A</p>
           </div>
-          <span class="bg-primary/20 text-primary rounded-full px-3 py-1 text-xs font-medium">
+          <span
+            class="h1-badge text-primary bg-primary/20 w-full rounded-full px-3 py-1 text-center sm:ml-auto sm:w-auto"
+          >
             Matriculado
           </span>
         </router-link>
@@ -92,16 +94,18 @@
         <!-- Niño 2 -->
         <router-link
           to="/enrollments/2"
-          class="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md"
+          class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-secondary/10 flex h-12 w-12 items-center justify-center rounded-full">
-            <span class="h5 text-secondary">CL</span>
+          <div class="bg-secondary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+            <span class="lead2 font-bold text-secondary">CL</span>
           </div>
-          <div class="flex-1">
-            <h3 class="h5 text-gray-800">Carlos López Ramos</h3>
-            <p class="small text-gray-500">DNI: 87654321 • Turno: Tarde • Sección B</p>
+          <div class="min-w-0 flex-1">
+            <h5 class="text-gray-800">Carlos López Ramos</h5>
+            <p class="mt-1 text-gray-500">DNI: 87654321 • Turno: Tarde • Sección B</p>
           </div>
-          <span class="bg-primary/20 text-primary rounded-full px-3 py-1 text-xs font-medium">
+          <span
+            class="h1-badge text-primary bg-primary/20 w-full rounded-full px-3 py-1 text-center sm:ml-auto sm:w-auto"
+          >
             Matriculado
           </span>
         </router-link>
@@ -109,16 +113,18 @@
         <!-- Niño 3 -->
         <router-link
           to="/enrollments/3"
-          class="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md"
+          class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-tertiary/10 flex h-12 w-12 items-center justify-center rounded-full">
-            <span class="h5 text-tertiary">MR</span>
+          <div class="bg-tertiary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+            <span class="lead2 font-bold text-tertiary">MR</span>
           </div>
-          <div class="flex-1">
-            <h3 class="h5 text-gray-800">María Rodríguez Silva</h3>
-            <p class="small text-gray-500">DNI: 11223344 • Turno: Mañana • Sección A</p>
+          <div class="min-w-0 flex-1">
+            <h5 class="text-gray-800">María Rodríguez Silva</h5>
+            <p class="mt-1 text-gray-500">DNI: 11223344 • Turno: Mañana • Sección A</p>
           </div>
-          <span class="rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-700">
+          <span
+            class="h1-badge rounded-full bg-yellow-100 w-full px-3 py-1 text-center text-yellow-700 sm:ml-auto sm:w-auto"
+          >
             Trasladado
           </span>
         </router-link>
@@ -126,16 +132,18 @@
         <!-- Niño 4 -->
         <router-link
           to="/enrollments/4"
-          class="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md"
+          class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="flex h-12 w-12 items-center justify-center rounded-full bg-red-50">
-            <span class="h5 text-red-500">JG</span>
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-50">
+            <span class="lead2 font-bold text-red-500">JG</span>
           </div>
-          <div class="flex-1">
-            <h3 class="h5 text-gray-800">Jorge Gonzales Torres</h3>
-            <p class="small text-gray-500">DNI: 55667788 • Turno: Tarde • Sección C</p>
+          <div class="min-w-0 flex-1">
+            <h5 class="text-gray-800">Jorge Gonzales Torres</h5>
+            <p class="mt-1 text-gray-500">DNI: 55667788 • Turno: Tarde • Sección C</p>
           </div>
-          <span class="rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-600">
+          <span
+            class="h1-badge rounded-full bg-red-100 w-full px-3 py-1 text-center text-red-600 sm:ml-auto sm:w-auto"
+          >
             Retirado
           </span>
         </router-link>
@@ -143,16 +151,18 @@
         <!-- Niño 5 -->
         <router-link
           to="/enrollments/5"
-          class="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md"
+          class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
-            <span class="h5 text-primary">LM</span>
+          <div class="bg-primary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+            <span class="lead2 font-bold text-primary">LM</span>
           </div>
-          <div class="flex-1">
-            <h3 class="h5 text-gray-800">Laura Martínez Vargas</h3>
-            <p class="small text-gray-500">DNI: 99887766 • Turno: Mañana • Sección B</p>
+          <div class="min-w-0 flex-1">
+            <h5 class="text-gray-800">Laura Martínez Vargas</h5>
+            <p class="mt-1 text-gray-500">DNI: 99887766 • Turno: Mañana • Sección B</p>
           </div>
-          <span class="bg-primary/20 text-primary rounded-full px-3 py-1 text-xs font-medium">
+          <span
+            class="h1-badge text-primary bg-primary/20 w-full rounded-full px-3 py-1 text-center sm:ml-auto sm:w-auto"
+          >
             Matriculado
           </span>
         </router-link>

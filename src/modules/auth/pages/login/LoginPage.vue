@@ -1,16 +1,14 @@
 <template>
-  <div class="login-page bg-secondary/30 flex min-h-screen flex-col lg:flex-row">
-    <!-- Mitad imagen izquierda -->
+  <div class="login-page bg-secondary/20 flex min-h-screen flex-col lg:flex-row">
+    <!-- Mitad imagen (solo desktop) -->
     <div
-      class="login-image relative flex h-48 w-full shrink-0 items-center justify-center overflow-hidden rounded-b-[2rem] sm:h-64 lg:h-auto lg:w-1/2 lg:rounded-none lg:rounded-r-[2.5rem]"
+      class="login-image relative hidden w-full items-center justify-center overflow-hidden rounded-r-[2.5rem] lg:flex lg:w-1/2"
     >
       <!-- Overlay degradado -->
       <div class="from-primary/70 to-secondary/30 absolute inset-0 bg-gradient-to-r via-black/50" />
 
-      <!-- Contenido desktop (solo lg+) -->
-      <div
-        class="relative z-10 hidden flex-col items-center justify-center p-12 text-center lg:flex"
-      >
+      <!-- Contenido -->
+      <div class="relative z-10 flex flex-col items-center justify-center p-12 text-center">
         <div
           class="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm"
         >
@@ -22,20 +20,10 @@
           evaluaciones de tus pequeños en un solo lugar.
         </p>
       </div>
-
-      <!-- Contenido mobile (logo minimal) -->
-      <div class="relative z-10 flex items-center gap-3 lg:hidden">
-        <div
-          class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm"
-        >
-          <IconSeedling class="h-7 w-7 text-white" />
-        </div>
-        <label class="label-white font-semibold">Semillitas del Saber</label>
-      </div>
     </div>
 
-    <!-- Mitad formulario derecha -->
-    <div class="flex w-full flex-1 items-center justify-center p-6 sm:p-10 lg:w-1/2 lg:flex-none">
+    <!-- Mitad formulario -->
+    <div class="flex w-full flex-1 items-center justify-center p-6 lg:w-1/2 lg:flex-none sm:p-10">
       <div class="w-full max-w-md">
         <!-- Logo -->
         <div class="mb-8 text-center">
@@ -50,7 +38,16 @@
 
         <!-- Card de Login -->
         <div class="rounded-3xl bg-white p-8 shadow-2xl">
-          <form class="space-y-5">
+          <form class="space-y-5" @submit.prevent="handleSubmit">
+            <!-- Mensaje de error -->
+            <p
+              v-if="errorMessage"
+              class="flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600"
+            >
+              <IconAlertCircle class="h-5 w-5 shrink-0" />
+              {{ errorMessage }}
+            </p>
+
             <!-- Campo DNI/Usuario -->
             <div>
               <label class="label mb-2 block text-gray-700">DNI o Usuario</label>
@@ -60,6 +57,7 @@
                   v-model="dni"
                   type="text"
                   placeholder="Ingrese su DNI o usuario"
+                  autocomplete="username"
                   class="focus:border-primary focus:ring-primary/20 w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
                 />
               </div>
@@ -74,6 +72,7 @@
                   v-model="password"
                   :type="showPassword ? 'text' : 'password'"
                   placeholder="Ingrese su contraseña"
+                  autocomplete="current-password"
                   class="focus:border-primary focus:ring-primary/20 w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-12 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
                 />
                 <!-- Toggle ver contraseña -->
@@ -92,10 +91,12 @@
             <!-- Botón Ingresar -->
             <button
               type="submit"
-              class="bg-primary hover:bg-primary-dark flex w-full items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white shadow-lg transition-all hover:shadow-xl"
+              :disabled="authStore.isLoading"
+              class="bg-primary hover:bg-primary-dark flex w-full items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white shadow-lg transition-all hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <IconLogin class="h-5 w-5" />
-              Ingresar
+              <IconLoader2 v-if="authStore.isLoading" class="h-5 w-5 animate-spin" />
+              <IconLogin v-else class="h-5 w-5" />
+              {{ authStore.isLoading ? 'Ingresando...' : 'Ingresar' }}
             </button>
           </form>
         </div>
@@ -106,13 +107,37 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-import { IconEye, IconEyeOff, IconLock, IconLogin, IconSeedling, IconUser } from '@tabler/icons-vue'
+import { IconAlertCircle, IconEye, IconEyeOff, IconLoader2, IconLock, IconLogin, IconSeedling, IconUser } from '@tabler/icons-vue'
+
+import { useAuthStore } from '@/stores/auth.store'
+
+const router = useRouter()
+const authStore = useAuthStore()
 
 // Estado del formulario
 const dni = ref('')
 const password = ref('')
 const showPassword = ref(false)
+const errorMessage = ref('')
+
+async function handleSubmit() {
+  errorMessage.value = ''
+
+  if (!dni.value.trim() || !password.value) {
+    errorMessage.value = 'Ingresa tu DNI y contraseña.'
+    return
+  }
+
+  const success = await authStore.login(dni.value, password.value)
+
+  if (success) {
+    router.push('/dashboard')
+  } else {
+    errorMessage.value = 'Credenciales incorrectas. Verifica tu DNI y contraseña.'
+  }
+}
 </script>
 
 <style scoped>
