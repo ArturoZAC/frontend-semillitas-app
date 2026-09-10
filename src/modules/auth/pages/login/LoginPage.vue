@@ -1,5 +1,5 @@
 <template>
-  <div class="login-page flex min-h-screen flex-col lg:flex-row">
+  <div class="login-page bg-secondary/30 flex min-h-screen flex-col lg:flex-row">
     <!-- Mitad imagen izquierda -->
     <div
       class="login-image relative flex h-48 w-full shrink-0 items-center justify-center overflow-hidden rounded-b-[2rem] sm:h-64 lg:h-auto lg:w-1/2 lg:rounded-none lg:rounded-r-[2.5rem]"
@@ -55,9 +55,7 @@
             <div>
               <label class="label mb-2 block text-gray-700">DNI o Usuario</label>
               <div class="relative">
-                <IconUser
-                  class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400"
-                />
+                <IconUser class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
                   v-model="dni"
                   type="text"
@@ -71,9 +69,7 @@
             <div>
               <label class="label mb-2 block text-gray-700">Contraseña</label>
               <div class="relative">
-                <IconLock
-                  class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400"
-                />
+                <IconLock class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
                   v-model="password"
                   :type="showPassword ? 'text' : 'password'"
@@ -110,6 +106,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import { IconEye, IconEyeOff, IconLock, IconLogin, IconSeedling, IconUser } from '@tabler/icons-vue'
 
 // Estado del formulario
