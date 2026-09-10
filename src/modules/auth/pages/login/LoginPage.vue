@@ -1,9 +1,16 @@
 <template>
-  <div class="login-page">
-    <!-- Mitad imagen -->
-    <div class="login-image relative hidden lg:block lg:w-1/2">
+  <div class="login-page flex min-h-screen flex-col lg:flex-row">
+    <!-- Mitad imagen izquierda -->
+    <div
+      class="login-image relative flex h-48 w-full shrink-0 items-center justify-center overflow-hidden rounded-b-[2rem] sm:h-64 lg:h-auto lg:w-1/2 lg:rounded-none lg:rounded-r-[2.5rem]"
+    >
+      <!-- Overlay degradado -->
       <div class="from-primary/70 to-secondary/30 absolute inset-0 bg-gradient-to-r via-black/50" />
-      <div class="relative z-10 flex h-full flex-col items-center justify-center p-12 text-center">
+
+      <!-- Contenido desktop (solo lg+) -->
+      <div
+        class="relative z-10 hidden flex-col items-center justify-center p-12 text-center lg:flex"
+      >
         <div
           class="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm"
         >
@@ -15,10 +22,20 @@
           evaluaciones de tus pequeños en un solo lugar.
         </p>
       </div>
+
+      <!-- Contenido mobile (logo minimal) -->
+      <div class="relative z-10 flex items-center gap-3 lg:hidden">
+        <div
+          class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm"
+        >
+          <IconSeedling class="h-7 w-7 text-white" />
+        </div>
+        <label class="label-white font-semibold">Semillitas del Saber</label>
+      </div>
     </div>
 
-    <!-- Mitad formulario -->
-    <div class="flex w-full items-center justify-center p-6 sm:p-10 lg:w-1/2">
+    <!-- Mitad formulario derecha -->
+    <div class="flex w-full flex-1 items-center justify-center p-6 sm:p-10 lg:w-1/2 lg:flex-none">
       <div class="w-full max-w-md">
         <!-- Logo -->
         <div class="mb-8 text-center">
@@ -38,7 +55,9 @@
             <div>
               <label class="label mb-2 block text-gray-700">DNI o Usuario</label>
               <div class="relative">
-                <IconUser class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                <IconUser
+                  class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400"
+                />
                 <input
                   v-model="dni"
                   type="text"
@@ -52,7 +71,9 @@
             <div>
               <label class="label mb-2 block text-gray-700">Contraseña</label>
               <div class="relative">
-                <IconLock class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                <IconLock
+                  class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400"
+                />
                 <input
                   v-model="password"
                   :type="showPassword ? 'text' : 'password'"
@@ -89,7 +110,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
 import { IconEye, IconEyeOff, IconLock, IconLogin, IconSeedling, IconUser } from '@tabler/icons-vue'
 
 // Estado del formulario
@@ -99,10 +119,6 @@ const showPassword = ref(false)
 </script>
 
 <style scoped>
-.login-page {
-  min-height: 100vh;
-}
-
 /* Fondo de la mitad imagen - misma imagen del hero */
 .login-image {
   background-image: url('/images/hero-bg.jpg');
