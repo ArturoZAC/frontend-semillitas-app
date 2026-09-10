@@ -13,10 +13,7 @@
   </div>
 
   <!-- Login/Forgot Password -->
-  <div
-    v-else
-    class="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#B8D787] to-[#C08461] p-4"
-  >
+  <div v-else class="min-h-screen">
     <slot />
   </div>
 </template>

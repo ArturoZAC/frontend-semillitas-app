@@ -5,7 +5,7 @@
 ===================================== */
 @theme inline {
   --font-heading: 'Trench Slab', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
 
   --color-primary: #b8d787;
   --color-primary-dark: #a3c474;
@@ -29,25 +29,25 @@
 }
 
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  src: url('./assets/fonts/plus-jakarta/PlusJakartaSans-Regular.woff2') format('woff2');
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  src: url('./assets/fonts/plus-jakarta/PlusJakartaSans-Medium.woff2') format('woff2');
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  src: url('./assets/fonts/plus-jakarta/PlusJakartaSans-Bold.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/montserrat/Montserrat-SemiBold.woff2') format('woff2');
+  font-weight: 600 700;
   font-style: normal;
   font-display: swap;
 }
@@ -67,7 +67,8 @@
   }
 
   body {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    /* font-family: 'Montserrat', system-ui, sans-serif; */
     background: transparent;
     color: #1f2937;
     -webkit-font-smoothing: antialiased;
@@ -86,7 +87,7 @@
   }
 
   button {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     cursor: pointer;
   }
 
@@ -94,7 +95,7 @@
   label,
   li,
   span {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     color: #1f2937;
   }
 
@@ -223,13 +224,13 @@
 
   /* ---- LEAD ---- */
   .lead {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 18px;
     line-height: 1.5;
     color: #1f2937;
   }
   .lead-white {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 18px;
     line-height: 1.5;
     color: #ffffff;
@@ -237,13 +238,13 @@
 
   /* ---- LEAD2 ---- */
   .lead2 {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.4;
     color: #1f2937;
   }
   .lead2-white {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 16px;
     line-height: 1.4;
     color: #ffffff;
@@ -302,13 +303,13 @@
 
   /* ---- H1 BADGE ---- */
   .h1-badge {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     color: #1f2937;
   }
   .h1-badge-white {
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     color: #ffffff;

@@ -1,26 +1,38 @@
 <template>
   <div class="login-page">
-    <!-- Fondo degradado -->
-    <div class="from-primary via-primary-dark to-secondary absolute inset-0 bg-gradient-to-br" />
+    <!-- Mitad imagen -->
+    <div class="login-image relative hidden lg:block lg:w-1/2">
+      <div class="from-primary/70 to-secondary/30 absolute inset-0 bg-gradient-to-r via-black/50" />
+      <div class="relative z-10 flex h-full flex-col items-center justify-center p-12 text-center">
+        <div
+          class="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20 backdrop-blur-sm"
+        >
+          <IconSeedling class="h-14 w-14 text-white" />
+        </div>
+        <h1 class="display-white text-white">Semillitas<br />del Saber</h1>
+        <p class="lead-white mt-4 max-w-md text-white/90">
+          Plataforma de gestión escolar para nivel inicial. Controla matrículas, asistencia y
+          evaluaciones de tus pequeños en un solo lugar.
+        </p>
+      </div>
+    </div>
 
-    <!-- Contenido -->
-    <div class="relative z-10 flex min-h-screen items-center justify-center p-4">
+    <!-- Mitad formulario -->
+    <div class="flex w-full items-center justify-center p-6 sm:p-10 lg:w-1/2">
       <div class="w-full max-w-md">
         <!-- Logo -->
         <div class="mb-8 text-center">
           <div
-            class="mb-4 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-lg"
+            class="bg-primary mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl shadow-lg"
           >
-            <IconPlant2 class="text-primary h-12 w-12" />
+            <IconSeedling class="h-12 w-12 text-white" />
           </div>
-          <h1 class="h2-hero-white text-4xl font-bold">Colegio Semillitas</h1>
-          <p class="lead2-white mt-2 text-white/80">Sistema de Gestión</p>
+          <h2 class="h2-hero text-gray-900">Iniciar Sesión</h2>
+          <p class="lead2 mt-2 text-gray-500">Sistema de Gestión</p>
         </div>
 
         <!-- Card de Login -->
         <div class="rounded-3xl bg-white p-8 shadow-2xl">
-          <h2 class="h3-card mb-6 text-center text-gray-800">Iniciar Sesión</h2>
-
           <form class="space-y-5">
             <!-- Campo DNI/Usuario -->
             <div>
@@ -28,6 +40,7 @@
               <div class="relative">
                 <IconUser class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
+                  v-model="dni"
                   type="text"
                   placeholder="Ingrese su DNI o usuario"
                   class="focus:border-primary focus:ring-primary/20 w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
@@ -41,10 +54,21 @@
               <div class="relative">
                 <IconLock class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
                 <input
-                  type="password"
+                  v-model="password"
+                  :type="showPassword ? 'text' : 'password'"
                   placeholder="Ingrese su contraseña"
-                  class="focus:border-primary focus:ring-primary/20 w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-4 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
+                  class="focus:border-primary focus:ring-primary/20 w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pr-12 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
                 />
+                <!-- Toggle ver contraseña -->
+                <button
+                  type="button"
+                  :aria-label="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+                  class="absolute top-1/2 right-4 -translate-y-1/2 text-gray-400 transition-colors hover:text-gray-600 focus:outline-none"
+                  @click="showPassword = !showPassword"
+                >
+                  <IconEye v-if="!showPassword" class="h-5 w-5" />
+                  <IconEyeOff v-else class="h-5 w-5" />
+                </button>
               </div>
             </div>
 
@@ -57,26 +81,6 @@
               Ingresar
             </button>
           </form>
-
-          <!-- Links -->
-          <div class="mt-6 text-center">
-            <router-link
-              to="/forgot-password"
-              class="text-secondary hover:text-secondary-dark text-sm transition-colors"
-            >
-              ¿Olvidaste tu contraseña?
-            </router-link>
-          </div>
-        </div>
-
-        <!-- Cuentas de prueba -->
-        <div class="mt-6 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
-          <p class="mb-2 text-center text-sm font-medium text-white">Cuentas de prueba:</p>
-          <div class="space-y-1 text-xs text-white/80">
-            <p><strong>Directora:</strong> 12345678 / 123456</p>
-            <p><strong>Docente:</strong> 87654321 / 123456</p>
-            <p><strong>Padre:</strong> 11223344 / 123456</p>
-          </div>
         </div>
       </div>
     </div>
@@ -84,11 +88,26 @@
 </template>
 
 <script setup lang="ts">
-import { IconLock, IconLogin, IconPlant2, IconUser } from '@tabler/icons-vue'
+import { ref } from 'vue'
+
+import { IconEye, IconEyeOff, IconLock, IconLogin, IconSeedling, IconUser } from '@tabler/icons-vue'
+
+// Estado del formulario
+const dni = ref('')
+const password = ref('')
+const showPassword = ref(false)
 </script>
 
 <style scoped>
 .login-page {
   min-height: 100vh;
+}
+
+/* Fondo de la mitad imagen - misma imagen del hero */
+.login-image {
+  background-image: url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 </style>
