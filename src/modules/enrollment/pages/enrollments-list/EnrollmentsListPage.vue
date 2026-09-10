@@ -35,22 +35,19 @@
 
         <!-- Filtros -->
         <div class="flex flex-col gap-3 sm:flex-row">
-          <select
-            class="focus:border-primary flex-1 rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 shadow-sm focus:outline-none"
-          >
-            <option value="">Todos los turnos</option>
-            <option value="morning">Mañana</option>
-            <option value="afternoon">Tarde</option>
-          </select>
+          <AppSelect
+            v-model="turnoFilter"
+            class="flex-1"
+            :options="turnoOptions"
+            placeholder="Todos los turnos"
+          />
 
-          <select
-            class="focus:border-primary flex-1 rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-700 shadow-sm focus:outline-none"
-          >
-            <option value="">Todas las secciones</option>
-            <option value="A">Sección A</option>
-            <option value="B">Sección B</option>
-            <option value="C">Sección C</option>
-          </select>
+          <AppSelect
+            v-model="seccionFilter"
+            class="flex-1"
+            :options="seccionOptions"
+            placeholder="Todas las secciones"
+          />
         </div>
       </div>
 
@@ -172,5 +169,26 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import { IconPlus, IconSearch } from '@tabler/icons-vue'
+
+import AppSelect from '@/shared/components/AppSelect.vue'
+import type { AppSelectOption } from '@/shared/components/AppSelect.vue'
+
+const turnoFilter = ref('')
+const seccionFilter = ref('')
+
+const turnoOptions: AppSelectOption[] = [
+  { value: '', label: 'Todos los turnos' },
+  { value: 'morning', label: 'Mañana' },
+  { value: 'afternoon', label: 'Tarde' },
+]
+
+const seccionOptions: AppSelectOption[] = [
+  { value: '', label: 'Todas las secciones' },
+  { value: 'A', label: 'Sección A' },
+  { value: 'B', label: 'Sección B' },
+  { value: 'C', label: 'Sección C' },
+]
 </script>

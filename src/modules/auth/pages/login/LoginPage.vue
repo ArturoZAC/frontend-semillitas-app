@@ -23,7 +23,7 @@
     </div>
 
     <!-- Mitad formulario -->
-    <div class="flex w-full flex-1 items-center justify-center p-6 lg:w-1/2 lg:flex-none sm:p-10">
+    <div class="flex w-full flex-1 items-center justify-center p-6 sm:p-10 lg:w-1/2 lg:flex-none">
       <div class="w-full max-w-md">
         <!-- Logo -->
         <div class="mb-8 text-center">
@@ -109,7 +109,16 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { IconAlertCircle, IconEye, IconEyeOff, IconLoader2, IconLock, IconLogin, IconSeedling, IconUser } from '@tabler/icons-vue'
+import {
+  IconAlertCircle,
+  IconEye,
+  IconEyeOff,
+  IconLoader2,
+  IconLock,
+  IconLogin,
+  IconSeedling,
+  IconUser,
+} from '@tabler/icons-vue'
 
 import { useAuthStore } from '@/stores/auth.store'
 

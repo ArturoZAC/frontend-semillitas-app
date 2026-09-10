@@ -25,60 +25,34 @@
         <!-- Área Curricular -->
         <div>
           <label class="label mb-2 block font-medium text-gray-700">Área Curricular</label>
-          <div class="relative">
-            <IconBook class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
-            <select
-              class="focus:border-tertiary focus:ring-tertiary/20 w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 py-3 pr-10 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
-            >
-              <option value="">Seleccionar área</option>
-              <option value="cognitivo">Cognitivo</option>
-              <option value="comunicativo">Comunicativo</option>
-              <option value="psicomotriz">Psicomotriz</option>
-              <option value="social">Socioemocional</option>
-            </select>
-            <IconChevronDown
-              class="pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2 text-gray-400"
-            />
-          </div>
+          <AppSelect
+            v-model="areaFilter"
+            :options="areaOptions"
+            placeholder="Seleccionar área"
+            :leading-icon="IconBook"
+          />
         </div>
 
         <!-- Bimestre -->
         <div>
           <label class="label mb-2 block font-medium text-gray-700">Bimestre</label>
-          <div class="relative">
-            <IconCalendar class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
-            <select
-              class="focus:border-tertiary focus:ring-tertiary/20 w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 py-3 pr-10 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
-            >
-              <option value="">Seleccionar bimestre</option>
-              <option value="1">I Bimestre</option>
-              <option value="2">II Bimestre</option>
-              <option value="3">III Bimestre</option>
-              <option value="4">IV Bimestre</option>
-            </select>
-            <IconChevronDown
-              class="pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2 text-gray-400"
-            />
-          </div>
+          <AppSelect
+            v-model="bimestreFilter"
+            :options="bimestreOptions"
+            placeholder="Seleccionar bimestre"
+            :leading-icon="IconCalendar"
+          />
         </div>
 
         <!-- Sección -->
         <div>
           <label class="label mb-2 block font-medium text-gray-700">Sección</label>
-          <div class="relative">
-            <IconSchool class="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
-            <select
-              class="focus:border-tertiary focus:ring-tertiary/20 w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 py-3 pr-10 pl-12 text-gray-800 transition-colors focus:bg-white focus:ring-2 focus:outline-none"
-            >
-              <option value="">Seleccionar sección</option>
-              <option value="A">Sección A</option>
-              <option value="B">Sección B</option>
-              <option value="C">Sección C</option>
-            </select>
-            <IconChevronDown
-              class="pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2 text-gray-400"
-            />
-          </div>
+          <AppSelect
+            v-model="seccionFilter"
+            :options="seccionOptions"
+            placeholder="Seleccionar sección"
+            :leading-icon="IconSchool"
+          />
         </div>
       </div>
 
@@ -141,14 +115,42 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import {
   IconArrowLeft,
   IconBook,
   IconCalendar,
-  IconChevronDown,
   IconDownload,
   IconFileSpreadsheet,
   IconRefresh,
   IconSchool,
 } from '@tabler/icons-vue'
+
+import AppSelect from '@/shared/components/AppSelect.vue'
+import type { AppSelectOption } from '@/shared/components/AppSelect.vue'
+
+const areaFilter = ref('')
+const bimestreFilter = ref('')
+const seccionFilter = ref('')
+
+const areaOptions: AppSelectOption[] = [
+  { value: 'cognitivo', label: 'Cognitivo' },
+  { value: 'comunicativo', label: 'Comunicativo' },
+  { value: 'psicomotriz', label: 'Psicomotriz' },
+  { value: 'social', label: 'Socioemocional' },
+]
+
+const bimestreOptions: AppSelectOption[] = [
+  { value: '1', label: 'I Bimestre' },
+  { value: '2', label: 'II Bimestre' },
+  { value: '3', label: 'III Bimestre' },
+  { value: '4', label: 'IV Bimestre' },
+]
+
+const seccionOptions: AppSelectOption[] = [
+  { value: 'A', label: 'Sección A' },
+  { value: 'B', label: 'Sección B' },
+  { value: 'C', label: 'Sección C' },
+]
 </script>
