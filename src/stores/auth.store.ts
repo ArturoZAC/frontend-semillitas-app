@@ -80,6 +80,7 @@ export const useAuthStore = defineStore('auth', () => {
       canUploadExcel: role === 'directora',
       canDownloadExcel: role === 'directora',
       canEvaluateGrades: role === 'docente' || role === 'directora',
+      canAccessConsultation: role === 'padre',
       // Padre solo lee
       canEdit: role !== 'padre',
     }
@@ -140,6 +141,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     // Verificar permisos por rol
     const routePermissions: Record<string, UserRole[]> = {
+      'dashboard-home': ['directora', 'docente', 'padre'],
       'enrollments-list': ['directora'],
       'enrollment-create': ['directora'],
       'enrollment-detail': ['directora'],
@@ -150,6 +152,7 @@ export const useAuthStore = defineStore('auth', () => {
       grades: ['directora', 'docente'],
       'grade-evaluation': ['directora', 'docente'],
       'grade-download': ['directora'],
+      consultation: ['padre'],
     }
 
     const allowedRoles = routePermissions[routeName]

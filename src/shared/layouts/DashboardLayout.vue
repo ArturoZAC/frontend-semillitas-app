@@ -3,7 +3,7 @@
   <div v-if="isCheckingAuth" class="flex min-h-screen items-center justify-center bg-gray-50">
     <div class="text-center">
       <div
-        class="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-4 border-[#B8D787] border-t-transparent"
+        class="border-primary mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-4 border-t-transparent"
       />
       <p class="text-gray-500">Verificando acceso...</p>
     </div>
@@ -15,12 +15,12 @@
     class="flex min-h-screen items-center justify-center bg-gray-50"
   >
     <div class="text-center">
-      <div class="mb-4 text-6xl">🔒</div>
+      <IconLock class="mx-auto mb-4 h-16 w-16 text-gray-300" />
       <h2 class="mb-2 text-xl font-bold text-gray-800">Acceso no autorizado</h2>
       <p class="mb-4 text-gray-500">Debes iniciar sesión para acceder</p>
       <router-link
         to="/login"
-        class="inline-block rounded-xl bg-[#B8D787] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#a3c474]"
+        class="bg-primary hover:bg-primary-dark inline-block rounded-xl px-6 py-3 font-semibold text-white transition-colors"
       >
         Ir al Login
       </router-link>
@@ -30,12 +30,12 @@
   <!-- Sin permisos para esta ruta -->
   <div v-else-if="!hasAccess" class="flex min-h-screen items-center justify-center bg-gray-50">
     <div class="text-center">
-      <div class="mb-4 text-6xl">🚫</div>
+      <IconShieldOff class="mx-auto mb-4 h-16 w-16 text-gray-300" />
       <h2 class="mb-2 text-xl font-bold text-gray-800">Sin permisos</h2>
       <p class="mb-4 text-gray-500">No tienes acceso a esta sección</p>
       <router-link
         to="/"
-        class="inline-block rounded-xl bg-[#B8D787] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#a3c474]"
+        class="bg-primary hover:bg-primary-dark inline-block rounded-xl px-6 py-3 font-semibold text-white transition-colors"
       >
         Volver al Inicio
       </router-link>
@@ -45,7 +45,7 @@
   <!-- Layout principal (autenticado + tiene permisos) -->
   <div v-else class="min-h-screen bg-gray-50 pb-20">
     <!-- Header dinámico -->
-    <header v-if="showHeader" class="bg-[#B8D787] p-4 shadow-md">
+    <header v-if="showHeader" class="bg-primary p-4 shadow-md">
       <slot name="header">
         <div class="flex items-center justify-between">
           <div>
@@ -54,8 +54,9 @@
           </div>
           <button
             @click="handleLogout"
-            class="rounded-lg bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
+            class="flex items-center gap-2 rounded-lg bg-white/20 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/30"
           >
+            <IconLogout class="h-4 w-4" />
             Salir
           </button>
         </div>
@@ -72,18 +73,11 @@
       <div class="flex items-center justify-around py-2">
         <!-- Inicio -->
         <router-link
-          to="/"
+          to="/dashboard"
           class="flex flex-col items-center px-4 py-2 text-gray-500 transition-colors"
-          :class="{ 'text-[#B8D787]': route.path === '/' }"
+          :class="{ 'text-primary': route.path.startsWith('/dashboard') }"
         >
-          <svg class="mb-1 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-            />
-          </svg>
+          <IconHome class="mb-1 h-6 w-6" />
           <span class="text-xs">Inicio</span>
         </router-link>
 
@@ -92,16 +86,9 @@
           v-if="authStore.permissions.canAccessEnrollment"
           to="/enrollments"
           class="flex flex-col items-center px-4 py-2 text-gray-500 transition-colors"
-          :class="{ 'text-[#B8D787]': route.path.startsWith('/enrollments') }"
+          :class="{ 'text-primary': route.path.startsWith('/enrollments') }"
         >
-          <svg class="mb-1 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-            />
-          </svg>
+          <IconClipboardList class="mb-1 h-6 w-6" />
           <span class="text-xs">Matrícula</span>
         </router-link>
 
@@ -110,16 +97,9 @@
           v-if="authStore.permissions.canAccessAttendance"
           to="/attendance"
           class="flex flex-col items-center px-4 py-2 text-gray-500 transition-colors"
-          :class="{ 'text-[#B8D787]': route.path.startsWith('/attendance') }"
+          :class="{ 'text-primary': route.path.startsWith('/attendance') }"
         >
-          <svg class="mb-1 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
+          <IconCircleCheck class="mb-1 h-6 w-6" />
           <span class="text-xs">Asistencia</span>
         </router-link>
 
@@ -128,17 +108,21 @@
           v-if="authStore.permissions.canAccessGrades"
           to="/grades"
           class="flex flex-col items-center px-4 py-2 text-gray-500 transition-colors"
-          :class="{ 'text-[#B8D787]': route.path.startsWith('/grades') }"
+          :class="{ 'text-primary': route.path.startsWith('/grades') }"
         >
-          <svg class="mb-1 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-            />
-          </svg>
+          <IconPencil class="mb-1 h-6 w-6" />
           <span class="text-xs">Notas</span>
+        </router-link>
+
+        <!-- Consulta (solo padre) -->
+        <router-link
+          v-if="authStore.permissions.canAccessConsultation"
+          to="/consultation"
+          class="flex flex-col items-center px-4 py-2 text-gray-500 transition-colors"
+          :class="{ 'text-primary': route.path.startsWith('/consultation') }"
+        >
+          <IconHelpCircle class="mb-1 h-6 w-6" />
+          <span class="text-xs">Consulta</span>
         </router-link>
       </div>
     </nav>
@@ -150,6 +134,17 @@
 // Valida autenticación y permisos internamente
 import { computed, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+
+import {
+  IconCircleCheck,
+  IconClipboardList,
+  IconHelpCircle,
+  IconHome,
+  IconLock,
+  IconLogout,
+  IconPencil,
+  IconShieldOff,
+} from '@tabler/icons-vue'
 
 import { useAuthStore } from '@/stores/auth.store'
 
@@ -194,6 +189,7 @@ const showHeader = computed(() => {
     'grades',
     'grade-evaluation',
     'grade-download',
+    'consultation',
   ]
   return routesWithHeader.includes(route.name as string)
 })

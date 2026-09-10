@@ -12,6 +12,12 @@ const router = createRouter({
       component: () => import('@/pages/home/HomePage.vue'),
       meta: { layout: 'app' },
     },
+    {
+      path: '/dashboard',
+      name: 'dashboard-home',
+      component: () => import('@/pages/dashboard/DashboardPage.vue'),
+      meta: { layout: 'dashboard' },
+    },
 
     // ============================================
     // AUTH (Layout: AuthLayout - fondo degradado)
@@ -104,6 +110,16 @@ const router = createRouter({
       path: '/grades/download',
       name: 'grade-download',
       component: () => import('@/modules/grades/pages/download-excel/DownloadExcelPage.vue'),
+      meta: { layout: 'dashboard' },
+    },
+
+    // ============================================
+    // MÓDULO: CONSULTATION (Layout: DashboardLayout - solo padre)
+    // ============================================
+    {
+      path: '/consultation',
+      name: 'consultation',
+      component: () => import('@/modules/consultation/pages/consultation/ConsultationPage.vue'),
       meta: { layout: 'dashboard' },
     },
 
