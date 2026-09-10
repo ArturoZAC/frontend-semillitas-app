@@ -74,8 +74,10 @@
           to="/enrollments/1"
           class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-primary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
-            <span class="lead2 font-bold text-primary">AP</span>
+          <div
+            class="bg-primary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+          >
+            <span class="lead2 text-primary font-bold">AP</span>
           </div>
           <div class="min-w-0 flex-1">
             <h5 class="text-gray-800">Ana Pérez García</h5>
@@ -93,8 +95,10 @@
           to="/enrollments/2"
           class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-secondary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
-            <span class="lead2 font-bold text-secondary">CL</span>
+          <div
+            class="bg-secondary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+          >
+            <span class="lead2 text-secondary font-bold">CL</span>
           </div>
           <div class="min-w-0 flex-1">
             <h5 class="text-gray-800">Carlos López Ramos</h5>
@@ -112,15 +116,17 @@
           to="/enrollments/3"
           class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-tertiary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
-            <span class="lead2 font-bold text-tertiary">MR</span>
+          <div
+            class="bg-tertiary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+          >
+            <span class="lead2 text-tertiary font-bold">MR</span>
           </div>
           <div class="min-w-0 flex-1">
             <h5 class="text-gray-800">María Rodríguez Silva</h5>
             <p class="mt-1 text-gray-500">DNI: 11223344 • Turno: Mañana • Sección A</p>
           </div>
           <span
-            class="h1-badge rounded-full bg-yellow-100 w-full px-3 py-1 text-center text-yellow-700 sm:ml-auto sm:w-auto"
+            class="h1-badge w-full rounded-full bg-yellow-100 px-3 py-1 text-center text-yellow-700 sm:ml-auto sm:w-auto"
           >
             Trasladado
           </span>
@@ -139,7 +145,7 @@
             <p class="mt-1 text-gray-500">DNI: 55667788 • Turno: Tarde • Sección C</p>
           </div>
           <span
-            class="h1-badge rounded-full bg-red-100 w-full px-3 py-1 text-center text-red-600 sm:ml-auto sm:w-auto"
+            class="h1-badge w-full rounded-full bg-red-100 px-3 py-1 text-center text-red-600 sm:ml-auto sm:w-auto"
           >
             Retirado
           </span>
@@ -150,8 +156,10 @@
           to="/enrollments/5"
           class="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:shadow-md sm:flex-nowrap"
         >
-          <div class="bg-primary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
-            <span class="lead2 font-bold text-primary">LM</span>
+          <div
+            class="bg-primary/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+          >
+            <span class="lead2 text-primary font-bold">LM</span>
           </div>
           <div class="min-w-0 flex-1">
             <h5 class="text-gray-800">Laura Martínez Vargas</h5>
@@ -173,8 +181,8 @@ import { ref } from 'vue'
 
 import { IconPlus, IconSearch } from '@tabler/icons-vue'
 
-import AppSelect from '@/shared/components/AppSelect.vue'
 import type { AppSelectOption } from '@/shared/components/AppSelect.vue'
+import AppSelect from '@/shared/components/AppSelect.vue'
 
 const turnoFilter = ref('')
 const seccionFilter = ref('')
